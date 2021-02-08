@@ -15,8 +15,10 @@ var Level = class Level {
     this.height = rows.length;
     this.width = rows[0].length;
     this.startActors = [];
+    
     this.vidas = 3;// vidas del jugador
     this.puntos = 0;//puntos de la partida
+    this.paused = false; // Indica si el juego está pausado
 
     this.rows = rows.map((row, y) => {
       return row.map((ch, x) => {
