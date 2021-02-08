@@ -7,7 +7,7 @@
 
 .actor  { position: absolute;  }
 .coin   { background: rgb(241, 229, 89); }
-.player { background: rgb(64, 64, 64); }
+.player { background: #05080B; }
 
 .game {
   overflow: hidden;
@@ -21,4 +21,14 @@
 }
 .won .player {
   box-shadow: -4px -7px 8px white, 4px -7px 8px white;
+}
+
+.gamebutton {
+	border: black, 10px;
+	background: rgb(150, 253, 184);
+	color: rgb(13, 14, 13);
+	padding: 10px 20px;
+	outline: none;
+	font-family: monospace;
+	cursor: pointer;
 }
