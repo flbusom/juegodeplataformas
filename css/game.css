@@ -1,6 +1,10 @@
 .background    { background:#78E6FC;
                  table-layout: fixed;
                  border-spacing: 0;   }
+/*{background:#78E6FC}*/
+
+
+
 .background td { padding: 0;          }
 .lava          { background: #E31D05; }
 .wall          { background: #2C8DF5;   }
