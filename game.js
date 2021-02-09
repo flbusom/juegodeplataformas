@@ -354,8 +354,8 @@ function runLevel(level, Display) {
 }
 
 async function runGame ( plans, Display ){
-  this.vidas = 5;//document  vidas del jugador
-  this.puntos = 0;//document puntos de la partida
+  this.vidas = 5;//document.getElementById("scoreli")  vidas del jugador
+  this.puntos = 0;//document.getElementById("livesli")  puntos de la partida
 
 
   for (let level = 0; level < plans.length;) {
