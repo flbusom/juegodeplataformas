@@ -32,3 +32,57 @@
 	font-family: monospace;
 	cursor: pointer;
 }
+
+
+.container{
+  position: absolute;
+  background: rgb(143, 161, 241);
+  color: blanchedalmond;
+  width: 100%;
+  min-height: 100vh;
+
+  display: flex;
+}
+
+.preloader{
+  margin: auto;
+
+  width: 350px;
+  height: 30px ;
+  background: rgb(111, 192, 238);
+
+  position: relative;
+
+}
+
+.preloader:before{
+   content: "";
+   position: absolute;
+  background: green;
+  width: 100%;
+  height: 30px;
+
+  animation: preloader 1s infinite;
+}
+
+.preloader p{
+  margin: 0%;
+  line-height: 30px;
+  font-size: 25px;
+  font-weight: bold;
+
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+@keyframes preloader{
+  90%{
+    width: 100%;
+    opacity: 1;
+  }
+  100%{
+    width: 100%;
+    opacity: 0;
+  }
+}
