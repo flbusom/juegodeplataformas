@@ -353,11 +353,17 @@ function runLevel(level, Display) {
   });
 }
 
-async function runGame(plans, Display) {
+async function runGame ( plans, Display ){
+  this.vidas = 5;//document  vidas del jugador
+  this.puntos = 0;//document puntos de la partida
+
+
   for (let level = 0; level < plans.length;) {
     let status = await runLevel(new Level(plans[level]),
-                                Display);
-    if (status == "won") level++;
+      Display );
+    
+    if ( status == "won" )
+      level++;
   }
   console.log("You've won!");
 }
