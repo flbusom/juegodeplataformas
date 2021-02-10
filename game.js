@@ -365,13 +365,14 @@ async function runGame ( plans, Display ){
     
     if ( status == "won" ){
       level++;
-      puntos++;}
+      puntos++;
+    }
     else if (status == "lose"){
       lives--;
     }
 
     if (lives == 0){
-   
+      console.log("You've lose!");
     }
       
   }
@@ -379,6 +380,7 @@ async function runGame ( plans, Display ){
 
   document.getElementById("scoreli").innerHTML = "Puntos: " + this.puntos;
   document.getElementById("livesli").innerHTML = "Vidas: " + this.lives;
+
   console.log("You've won!");
 
   
