@@ -355,8 +355,8 @@ function runLevel(level, Display) {
 }
 
 async function runGame ( plans, Display ){
-  this.vidas = 5;//document.getElementById("scoreli")  vidas del jugador
-  this.puntos = 0;//document.getElementById("livesli")  puntos de la partida
+  this.lives = 5;//document.getElementById("scoreli")  vidas del jugador
+  this.puntos = 1;//document.getElementById("livesli")  puntos de la partida
 
 
   for (let level = 0; level < plans.length;) {
@@ -365,7 +365,7 @@ async function runGame ( plans, Display ){
     
     if ( status == "won" ){
       level++;
-      score++;}
+      puntos++;}
     else if (status == "lose"){
       lives--;
     }
@@ -375,10 +375,13 @@ async function runGame ( plans, Display ){
     }
       
   }
+
+
+  document.getElementById("scoreli").innerHTML = "Puntos: " + this.puntos;
+  document.getElementById("livesli").innerHTML = "Vidas: " + this.lives;
   console.log("You've won!");
 
-  document.getElementById("scoreli").innerHTML = "Puntos: " + this.score;
-  document.getElementById("livesli").innerHTML = "Vidas: " + this.lives;
+  
 }
 
 /*

@@ -11,26 +11,20 @@
       </div>
   </div>  
 
+  <div>
+  <button id="pause" class="gamebutton" onclick="this.blur();">Pausa</button>
+  <button id="livesli"  class="gamebutton">Vidas: </button>
+  <button id="scoreli" class="gamebutton">Puntos: </button>
+  </div>
 
-  
   <script>
-
-
   setTimeout( function(){
-
     document.getElementById( 'container').style.transform= "scale(0)";
      runGame(GAME_LEVELS, DOMDisplay);
-
   },3000);   
   </script>
 
-  <div>
-
-  <button id="pause" class="gamebutton" onclick="this.blur();">Pausa</button>
-  <button id="livesli"  class="gamebutton"></button>
-  <button id="scoreli" class="gamebutton"></button>
-
-  </div
+  
 
 </body>
 
