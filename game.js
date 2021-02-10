@@ -16,9 +16,10 @@ var Level = class Level {
     this.width = rows[0].length;
     this.startActors = [];
     
+    this.paused = false; // Indica si el juego está pausado
     this.vidas = 3;// vidas del jugador
     this.puntos = 0;//puntos de la partida
-    this.paused = false; // Indica si el juego está pausado
+   // this.paused = false; // Indica si el juego está pausado
 
     this.rows = rows.map((row, y) => {
       return row.map((ch, x) => {
@@ -354,16 +355,46 @@ function runLevel(level, Display) {
 }
 
 async function runGame ( plans, Display ){
-  this.vidas = 5;//document.getElementById("scoreli")  vidas del jugador
-  this.puntos = 0;//document.getElementById("livesli")  puntos de la partida
+  this.lives = 5;//document.getElementById("scoreli")  vidas del jugador
+  this.puntos = 1;//document.getElementById("livesli")  puntos de la partida
 
 
   for (let level = 0; level < plans.length;) {
     let status = await runLevel(new Level(plans[level]),
       Display );
     
-    if ( status == "won" )
+    if ( status == "won" ){
       level++;
+      puntos++;
+    }
+    else if (status == "lose"){
+      lives--;
+    }
+
+    if (lives == 0){
+      console.log("You've lose!");
+    }
+      
   }
+
+
+  document.getElementById("scoreli").innerHTML = "Puntos: " + this.puntos;
+  document.getElementById("livesli").innerHTML = "Vidas: " + this.lives;
+
   console.log("You've won!");
+
+  
 }
+
+/*
+pauseOrResume() {
+  if (this.paused) {
+      this.timer = setInterval(() => this.update(), 50);
+      document.body.classList.remove('paused');
+      this.paused = false;
+  } else {
+      clearInterval(this.timer);
+      document.body.classList.add('paused');
+      this.paused = true;
+  }
+}*/
