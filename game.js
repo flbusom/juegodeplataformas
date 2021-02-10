@@ -358,13 +358,13 @@ async function runGame ( plans, Display ){
   this.lives = 5;//document.getElementById("scoreli")  vidas del jugador
   this.puntos = 1;//document.getElementById("livesli")  puntos de la partida
 
-   this.livesView = document.getElementById("vidas: ");
+  this.livesView = document.getElementById("livesli");
 document.getElementById("scoreli").innerHTML = "Puntos: " + this.puntos;
-document.getElementById( "livesli" ).innerHTML = "Vidas: " + this.lives;
+//document.getElementById( "livesli" ).innerHTML = "Vidas: " + this.lives;
   
-  for (let level = 0; level < plans.length && lives > 0;) {
+   for (let level = 0; level < plans.length && lives > 0;) {
     let status = await runLevel(new Level(plans[level]),
-      Display );
+      Display);
     
     if ( status == "won" ){
       level++;
@@ -372,7 +372,7 @@ document.getElementById( "livesli" ).innerHTML = "Vidas: " + this.lives;
     }
     else {
       lives--;
-      this.livesView.innerHTML = "Vidas: " + this.lives;
+        this.livesView.innerHTML = "Vidas: " + this.lives;
     }
  
   }//cierre for
