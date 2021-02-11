@@ -17,8 +17,6 @@ var Level = class Level {
     this.startActors = [];
     
     this.paused = false; // Indica si el juego está pausado
-    this.vidas = 3;// vidas del jugador
-    this.puntos = 0;//puntos de la partida
    // this.paused = false; // Indica si el juego está pausado
 
     this.rows = rows.map((row, y) => {
@@ -358,30 +356,34 @@ async function runGame ( plans, Display ){
   this.lives = 5;//document.getElementById("scoreli")  vidas del jugador
   this.puntos = 1;//document.getElementById("livesli")  puntos de la partida
 
-
-  for (let level = 0; level < plans.length;) {
+  this.livesView = document.getElementById("livesli");
+document.getElementById("scoreli").innerHTML = "Puntos: " + this.puntos;
+//document.getElementById( "livesli" ).innerHTML = "Vidas: " + this.lives;
+  
+   for (let level = 0; level < plans.length && lives > 0;) {
     let status = await runLevel(new Level(plans[level]),
-      Display );
+      Display);
     
     if ( status == "won" ){
       level++;
       puntos++;
     }
-    else if (status == "lose"){
+    else {
       lives--;
+        this.livesView.innerHTML = "Vidas: " + this.lives;
     }
+ 
+  }//cierre for
 
-    if (lives == 0){
-      console.log("You've lose!");
-    }
-      
+  if ( lives > 0 ){
+    console.log("You win!" );
+    document.location.reload();
   }
-
-
-  document.getElementById("scoreli").innerHTML = "Puntos: " + this.puntos;
-  document.getElementById("livesli").innerHTML = "Vidas: " + this.lives;
-
-  console.log("You've won!");
+  else{ 
+    console.log("Game Over!" );
+    document.location.reload();
+  }
+  
 
   
 }
