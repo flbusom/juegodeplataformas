@@ -382,3 +382,18 @@ async function runGame(plans, Display) {
 
 }
 
+/*
+pauseOrResume() {
+
+  this.paused = false; // Indica si el juego está pausado
+  if (this.paused) {
+      this.timer = setInterval(() => this.update(), 50);
+      document.body.classList.remove('paused');
+      this.paused = false;
+  } else {
+      clearInterval(this.timer);
+      document.body.classList.add('paused');
+      this.paused = true;
+  }
+}*/
+
