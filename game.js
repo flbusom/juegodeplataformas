@@ -15,9 +15,6 @@ var Level = class Level {
     this.height = rows.length;
     this.width = rows[0].length;
     this.startActors = [];
-    
-    this.paused = false; // Indica si el juego está pausado
-   // this.paused = false; // Indica si el juego está pausado
 
     this.rows = rows.map((row, y) => {
       return row.map((ch, x) => {
@@ -352,55 +349,36 @@ function runLevel(level, Display) {
   });
 }
 
-async function runGame ( plans, Display ){
-  this.lives = 5;//document.getElementById("scoreli")  vidas del jugador
-  this.puntos = 1;//document.getElementById("livesli")  puntos de la partida
-  var imagen = document.getElementById("foto");
 
-  this.livesView = document.getElementById("livesli");
-document.getElementById("scoreli").innerHTML = "Puntos: " + this.puntos;
-//document.getElementById( "livesli" ).innerHTML = "Vidas: " + this.lives;
+async function runGame(plans, Display) {
+  this.lives = 5;
+  this.livesView = document.getElementById( "livesli" );
   
-   for (let level = 0; level < plans.length && lives > 0;) {
+  this.score = 1;
+  this.scoreView = document.getElementById( "scoreli" )
+  
+  for (let level = 0; level < plans.length && lives > 0;) {
     let status = await runLevel(new Level(plans[level]),
       Display);
-    
-    if ( status == "won" ){
+    if (status == "won") {
       level++;
-      puntos++;
+      score++;
     }
+
     else {
       lives--;
-        this.livesView.innerHTML = "Vidas: " + this.lives;
+      this.livesView.innerHTML = "Vidas: 5" + this.lives;
     }
- 
-  }//cierre for
-
-  if ( lives > 0 ){
-    imgagen.src= "youwin.jpg";
-    fotoMostrada = "youwin";
-    console.log("You win!" );
-    document.location.reload();
 
   }
-  else{ 
-    console.log("Game Over!" );
+  if (lives > 0) {
+    console.log("You Win!");
     document.location.reload();
   }
-  
+  else {
+    console.log("Game Over");
+    document.location.reload();
+  }
 
-  
 }
 
-/*
-pauseOrResume() {
-  if (this.paused) {
-      this.timer = setInterval(() => this.update(), 50);
-      document.body.classList.remove('paused');
-      this.paused = false;
-  } else {
-      clearInterval(this.timer);
-      document.body.classList.add('paused');
-      this.paused = true;
-  }
-}*/
