@@ -355,6 +355,7 @@ function runLevel(level, Display) {
 async function runGame ( plans, Display ){
   this.lives = 5;//document.getElementById("scoreli")  vidas del jugador
   this.puntos = 1;//document.getElementById("livesli")  puntos de la partida
+  var imagen = document.getElementById("foto");
 
   this.livesView = document.getElementById("livesli");
 document.getElementById("scoreli").innerHTML = "Puntos: " + this.puntos;
@@ -376,8 +377,11 @@ document.getElementById("scoreli").innerHTML = "Puntos: " + this.puntos;
   }//cierre for
 
   if ( lives > 0 ){
+    imgagen.src= "youwin.jpg";
+    fotoMostrada = "youwin";
     console.log("You win!" );
     document.location.reload();
+
   }
   else{ 
     console.log("Game Over!" );
